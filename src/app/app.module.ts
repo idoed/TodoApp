@@ -14,6 +14,8 @@ import {DragulaModule } from 'ng2-dragula';
 import { Ng2DragDropModule } from 'ng2-drag-drop';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,TodoComponent

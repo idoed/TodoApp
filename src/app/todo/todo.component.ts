@@ -52,14 +52,10 @@ export class TodoComponent implements OnInit {
   onDelete($key : string){
     this.toDoService.removeTitle($key);
   }
-  onDelete1($key : string ){
+  onDeleteChecked($key : string ){
     this.toDoService.removeTitle1($key);
     console.log("item removed");
     
   }
-  onItemDrop(e: any) {
-    // Get the dropped data here
-    this.toDoService.toCheckList.push(e.dragData);
-}
 
 }
