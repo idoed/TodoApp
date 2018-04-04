@@ -59,8 +59,9 @@ export class TodoService {
   removeTitle1($key:string){
     this.toCheckList.remove($key);
   }
-  updateTitle(title:string,$key:string){
-    this.toDoList.update($key,title);
+  updateTitle($key:string ,title:string,oldTitle: string){
+    console.log("2 title"+title+" $key="+$key);
+    this.toDoList.update($key, {title: title}); 
   }
 
 

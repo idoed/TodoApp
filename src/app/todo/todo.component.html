@@ -10,7 +10,7 @@
         <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
       </span>
 
-      <input  class="myitemclass"style="background:khaki" value={{item.title}} type="text">
+      <input  class="myitemclass"style="background:khaki" value={{item.title}} type="text" (blur)="onChange(item.$key,$event.target.value,item.title)">
       <span class="hover-cursor pull-right" (click)="onDelete(item.$key)">
         <i class="fa fa-remove"></i>
       </span>

@@ -49,11 +49,11 @@ export class TodoComponent implements OnInit, ToggleEvent  {
       })
     })
   }
-  onChange(title: string,isChanged: boolean,$key: string){
-    console.log("i am here");
-    if(isChanged==true){
-      this.toDoService.updateTitle(title,$key);
-    }
+  onChange($key: string,title: string,oldTitle:string){
+    console.log("title"+title+" $key="+$key);
+    
+      this.toDoService.updateTitle($key,title,oldTitle);
+    
   }
 
   onAdd(itemTitle) {
