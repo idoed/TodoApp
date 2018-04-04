@@ -23,7 +23,7 @@ export class TodoService {
       title: title,
     });
   }
-
+//Adding new item to the list by Taking the String that was writen on the input text.
   addTitle(title: string) {
     if (this.toDoList = this.firebasedb.list('titles')) {
       this.toDoList.push({
@@ -32,8 +32,8 @@ export class TodoService {
       });
     }
   }
-
-  checkOrUnCheckTitle($key: string, flag: boolean, title: string) {
+//Moving the Item from the Main list to the CheckedList and changing the flag from false to true;
+  checkTitle($key: string, flag: boolean, title: string) {
     this.toDoList.remove($key);
     this.toCheckList.push({
       title: title,
@@ -41,7 +41,16 @@ export class TodoService {
       
     }); 
   }
-//2 Methoods that receivng Key value and deleting the raw that chosen.
+  //Moving the item from the CheckedList to the Mainlist and Changing the flag back to false;
+  UncheckTitle($key: string, flag: boolean, title: string) {
+    this.toCheckList.remove($key);
+    this.toDoList.push({
+      title: title,
+      isChecked: flag
+      
+    }); 
+  }
+//2 Methoods that receivng Key value and deleting the 
   removeTitle($key: string) {
     if (this.toDoList = this.firebasedb.list('titles')){
     this.toDoList.remove($key);
@@ -49,6 +58,9 @@ export class TodoService {
   }
   removeTitle1($key:string){
     this.toCheckList.remove($key);
+  }
+  updateTitle(title:string,$key:string){
+    this.toDoList.update($key,title);
   }
 
 

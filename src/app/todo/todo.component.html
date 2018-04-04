@@ -1,14 +1,16 @@
 <div class="jumbotron" style="padding:45px 0px" style="background:khaki">
-  <h4 class="text-center" style="font:bold">ToDo List 1 </h4>
+  <h4 class="text-center"  style="font:bold" gg-editable-text="myTitle" >ToDo List </h4>
 </div>
-
-<div style="margin:5px 0px" type="text/css">
-  <ul class="list-group">
-    <li draggable class="list-group-item" *ngFor="let item of toDoListArray" [dragData]="item" style="background:khaki">
+<input class="bold" placeholder="Enter Your Event" style="background:khaki" value="Summer BBQ">  
+<div style="margin:5px 0px" type="text/css" class="myclass">
+  <ul class="list-group" [dragula]='"bag-six"'  >
+    <li  class="list-group-item" *ngFor="let item of toDoListArray"  style="background:khaki">
+      <i class="fa fa-ellipsis-v" style="color:dimgray"></i>
       <span class="hover-cursor" style="margin:10px" [class.text-success]="item.isChecked" (click)="alterCheck(item.$key,item.isChecked,item.title)">
         <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
       </span>
-      {{item.title}}
+
+      <input  class="myitemclass"style="background:khaki" value={{item.title}} type="text">
       <span class="hover-cursor pull-right" (click)="onDelete(item.$key)">
         <i class="fa fa-remove"></i>
       </span>
@@ -16,27 +18,29 @@
   </ul>
 </div>
 
-<div class="input-group" style="margin: 50px 0px">
-  <input type="text" class="form-control" placeholder="What need to be done?" style="background:khaki" #itemTitle>
-  <div class="input-group-addon hover-cursor" (click)="onAdd(itemTitle)" style="background:khaki">
-    <i class="fa fa-plus-circle fa-2x"></i>
-  </div>
+<div class="input-group" style="margin: 10px 0px">
+    <div class="input-group-addon hover-cursor"  (click)="onAdd(itemTitle)" style="background:khaki">
+        <i class="fa fa-plus" aria-hidden="true" style="margin:10px" ></i>
+      </div>
+  <input type="text"  class="form-control" placeholder="Add Item" style="background:khaki" #itemTitle>
 </div>
 
-<div>
-  <h2 class="fa fa-angle-down" style="margin:20px">Checked items </h2>
+<div >
+    <h6 class="text-center" style="color:dimgray">__________________________________________</h6>
+  <p style="color:dimgray" class="fa fa-angle-down" style="margin:20px"><i>Checked items</i> </p>
   <ul class="list-group">
-    <li class="list-group-item" [dragula]='"third-bag"' *ngFor="let item of toCheckListArray" style="background:khaki">
-      <span class="hover-cursor" style="margin:10px" [class.text-success]="item.isChecked">
-        <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+    <li class="list-group-item"  *ngFor="let item of toCheckListArray" style="background:khaki">
+      <span class="hover-cursor" style="margin:10px" [class.text-success]="item.isChecked"(click)="alterCheckToUnchecked(item.$key,item.isChecked,item.title)" >
+        <i style="color:dimgray" class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
       </span>
-      {{item.title}}
+      <s>{{item.title}}</s>
       <span class="hover-cursor  pull-right" (click)="onDeleteChecked(item.$key)">
         <i class="fa fa-remove"></i>
       </span>
     </li>
   </ul>
 </div>
-<div class="jumbotron" style="padding:50px 0px" style="background:khaki">
-  <h4 class="fa fa-google"> Works on Google Chrome</h4>
+<div class="jumbotron" style="padding:100px 0px" style="background:khaki">
+ 
+  <h4 class="fa fa-google" style="font:bold"> Works on Google Chrome</h4>
 </div>

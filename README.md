@@ -1,33 +1,33 @@
 # TodoListApp
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Introduction 
+This project demostrate GoogleKeep Todo App. You can Add an item to your list, edit it, drag it, and after you finished your task you can press on the check button and the task moves to the CheckedList.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Structure 
+I imported FireBase library and Created 2 tables "titles" and "checkedTitles".
+Also used Dragula and ng2-editable for editing the the text.
 
-## Build
+In the script i made a service that comunicate with the Todo components and handle the tasks of Creating,Deleting ,draging and updating.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+#style
+I tried to make the UI as similar as the Google keep App.
 
-## Running unit tests
+##ScreenShots
+-General:
+http://www.interload.co.il/upload/8208934.png
+-CheckItem
+http://www.interload.co.il/upload/6498548.png
+-EditItem
+http://www.interload.co.il/upload/3896636.png
+-Add Item
+http://www.interload.co.il/upload/4032295.png
+-Remove
+http://www.interload.co.il/upload/4062529.png
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
 
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-"# TodoApp" 
-"# TodoApp" 

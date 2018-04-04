@@ -52,7 +52,11 @@
     "prefixInterfaces": false,
     "inline": {
       "style": false,
-      "template": false
+      "template": false,
+      "serve":{
+        "host":"84.108.215.111",
+        "port": 56266
+      }
     },
     "spec": {
       "class": false,

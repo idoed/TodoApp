@@ -12,21 +12,24 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import {DragulaModule } from 'ng2-dragula';
 import { Ng2DragDropModule } from 'ng2-drag-drop';
-
-
+import { EditableModule, ToggleEvent } from 'ng2-editable';
+ 
 
 
 @NgModule({
   declarations: [
-    AppComponent,TodoComponent
+    AppComponent, TodoComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,BrowserAnimationsModule,
-    FormsModule,MatButtonModule,MatToolbarModule,MatIconModule,MatCardModule,
-    HttpModule,DragulaModule,Ng2DragDropModule.forRoot()
+    AngularFireDatabaseModule, BrowserAnimationsModule,
+    FormsModule, MatButtonModule, MatToolbarModule, MatIconModule, MatCardModule,
+    HttpModule, DragulaModule, Ng2DragDropModule.forRoot(), EditableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements ToggleEvent {
+  isActive: boolean;
+  isChanged: boolean;
+}

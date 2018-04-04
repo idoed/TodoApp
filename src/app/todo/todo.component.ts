@@ -1,21 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from'./shared/todo.service';
-
+import { DragulaService } from 'ng2-dragula';
+import { EditableModule, ToggleEvent } from 'ng2-editable';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
-  providers : [TodoService]
+  providers : [TodoService,EditableModule]
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent implements OnInit, ToggleEvent  {
+  isActive: boolean;
+  isChanged: boolean;
   toDoListArray: any[];
   toCheckListArray: any[];
   options: any={
     removeOnSpill: true
   }
-  constructor(private toDoService: TodoService) { }
-
+  constructor(private toDoService: TodoService ,private  dragulaService: DragulaService) {   dragulaService.setOptions('sixth-bag', {
+    moves: function (el, container, handle) {
+      return handle.className === 'handle';
+    }
+  });
+    }
+  
+ 
   ngOnInit() {
     this.toDoService.getToDoList().snapshotChanges()
     .subscribe(item => {
@@ -40,14 +49,23 @@ export class TodoComponent implements OnInit {
       })
     })
   }
+  onChange(title: string,isChanged: boolean,$key: string){
+    console.log("i am here");
+    if(isChanged==true){
+      this.toDoService.updateTitle(title,$key);
+    }
+  }
 
   onAdd(itemTitle) {
     this.toDoService.addTitle(itemTitle.value);
     itemTitle.value = null;
   }
+  alterCheckToUnchecked($key: string,isChecked, title: string){
+    this.toDoService.UncheckTitle($key,!isChecked,title);
 
+  }
   alterCheck($key: string,isChecked, title: string) {
-    this.toDoService.checkOrUnCheckTitle($key,!isChecked,title);
+    this.toDoService.checkTitle($key,!isChecked,title);
   }
   onDelete($key : string){
     this.toDoService.removeTitle($key);

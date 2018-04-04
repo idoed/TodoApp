@@ -4,3 +4,26 @@
     padding: 10px 20px;
     display: inline;
 }
+.input-group input{
+    border: 0;
+    }
+.fafa-plus{
+    border: 0;
+}
+
+.list-group{
+    border:0;
+}
+.list-group-item{
+    border:0;
+}
+.input-group-addon{
+    border:0;
+}
+.bold{
+    font-weight:bold;
+    border:0;
+}
+.myitemclass{
+    border:0;
+}
